@@ -4,7 +4,7 @@ import sys
 
 # Important: This API key will be provided automatically in the Canvas environment.
 # Do not modify this line.
-API_KEY = "AIzaSyDvFtMCeTwTgVuZ246mD7wrFdtOwgAtPHc" # The API key for Gemini API
+API_KEY = "" # The API key for Gemini API
 # Using gemini-pro which has wider regional availability
 API_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=" + API_KEY
 
@@ -88,3 +88,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
