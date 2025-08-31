@@ -103,10 +103,3 @@ The output will be either `negative behavioral True` or `negative behavioral Fal
 
 ---
 
-## License
-
-MIT License
-
----
-
-For more details, see [`main.py`](main.py), [`image_to_text.py`](image_to_text.py), and [`sentiment_analyzer.py`](sentiment_analyzer.py)
