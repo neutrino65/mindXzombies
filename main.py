@@ -2,7 +2,7 @@ import subprocess
 import time
 import os
 import sys
-import ctypes  # New import for the pop-up alert
+import ctypes
 
 def run_image_to_text():
     """
@@ -92,7 +92,7 @@ def show_popup_alert():
     The pop-up will appear on top of all other applications.
     """
     # Define a warning message and a title for the pop-up
-    message = "Potential negative thought detected. Self-awareness is key to managing mental health. Acknowledge the thought and refocus your attention."
+    message = "Potential negative behavior detected. Please check the terminal for details."
     title = "Behavioral Alert"
     
     # Flags for the message box style:
@@ -106,6 +106,9 @@ def main():
     """
     Main loop to orchestrate the entire process.
     """
+    consecutive_negative_count = 0
+    REQUIRED_COUNT = 3  # Set the number of consecutive negative responses needed for the alert
+    
     while True:
         print("--- Starting new cycle ---")
         
@@ -115,10 +118,17 @@ def main():
         # Step 2: Run the sentiment analysis script with the extracted text
         is_negative = run_sentiment_analysis(extracted_text)
         
-        # Step 3: Show the pop-up alert if negative behavior is detected
+        # Step 3: Check for consecutive negative responses and show alert if threshold is met
         if is_negative:
-            show_popup_alert()
-            
+            consecutive_negative_count += 1
+            if consecutive_negative_count >= REQUIRED_COUNT:
+                show_popup_alert()
+                print("\n" + "="*50)
+                print("!!! WARNING: POTENTIAL NEGATIVE BEHAVIOR DETECTED !!!")
+                print("="*50 + "\n")
+        else:
+            consecutive_negative_count = 0  # Reset the counter if a non-negative response is received
+
         print("--- Cycle complete. Waiting for 10 seconds... ---")
         time.sleep(10)
 
