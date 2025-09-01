@@ -1,4 +1,4 @@
-# Mental Wellness Assistant 🧠💻
+# MoodSense 🧠💻
 
 ## Overview
 
